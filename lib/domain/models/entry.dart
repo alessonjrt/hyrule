@@ -11,12 +11,15 @@ class Entry {
   String description;
   String commonLocations;
   String category;
+  String image; // Added field for image URL
+
   Entry({
     required this.id,
     required this.name,
     required this.description,
     required this.commonLocations,
     required this.category,
+    required this.image, // Initialize the new field
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +29,7 @@ class Entry {
       'description': description,
       'commonLocations': commonLocations,
       'category': category,
+      'image': image, // Map the new field
     };
   }
 
@@ -36,6 +40,7 @@ class Entry {
       description: map['description'] as String,
       commonLocations: jsonEncode(map['common_location'] ?? ['Sem localização']),
       category: map['category'] as String,
+      image: map['image'] as String, // Construct from map
     );
   }
 
